@@ -1,0 +1,72 @@
+#set($layout="/layout/main.vm")
+
+#define($title)
+Edit New Article
+#end
+
+#define($referCss)
+<link rel="stylesheet" href="/editor/css/style.css"/>
+<link rel="stylesheet" href="/editor/css/editormd.min.css"/>
+<style>
+    .form-top {
+        margin-top: 1rem;
+    }
+
+    .submit-button {
+        margin-bottom: 1rem;
+        text-align: right;
+    }
+</style>
+#end
+
+
+#define($main)
+<form action="/new" method="post">
+    <div class="ui form form-top">
+        <div class="ui left aligned large header">Post New Article</div>
+        <div class="inline fields">
+            <div class="eight wide field">
+                <label>Ttitle</label>
+                <input placeholder="" name="title" type="text">
+            </div>
+        </div>
+        <div class="inline fields">
+            <div class="four wide field">
+                <label>Category</label>
+                <input placeholder="" name="category" type="text">
+            </div>
+        </div>
+    </div>
+    <div id="editor">
+        <textarea name="content" style="display:none;"></textarea>
+    </div>
+    <div class="ui form">
+        <div class="inline fields">
+            <div class="six wide field">
+                <label>Tag</label>
+                <input name="tag" placeholder="using , split if more tags exist" type="text">
+            </div>
+        </div>
+        <div class="submit-button">
+            <button class="ui button black " type="submit"> Submit</button>
+        </div>
+    </div>
+</form>
+
+#end
+
+
+#define($referJs)
+<script src="/editor/js/editormd.min.js"></script>
+<script type="text/javascript">
+    var testEditor;
+    $(function () {
+        testEditor = editormd("editor", {
+            width: "100%",
+            height: 640,
+            syncScrolling: "single",
+            path: "/editor/lib/"
+        });
+    });
+</script>
+#end

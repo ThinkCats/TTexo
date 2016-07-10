@@ -1,0 +1,52 @@
+#macro(sidebar $sidebar)
+
+<style>
+    .menu-left{
+        text-align: left;
+        margin-top: 1rem;
+        margin-left: -3px;
+    }
+</style>
+
+<div class="ui left demo vertical inverted sidebar labeled icon menu">
+    <a class="item">
+        <i class="home icon"></i>
+        Home
+    </a>
+    <a class="item">
+        <i class="block layout icon"></i>
+        Articles
+    </a>
+    <a class="item">
+        <i class="smile icon"></i>
+        Categories
+    </a>
+</div>
+
+<div class="pusher " id="menu">
+    <div class="menu-left">
+        <button v-on:click="showSideBar" class="ui black icon button">
+            <i class="align justify icon"></i>Menu
+        </button>
+    </div>
+
+    <div class=" ui container" >
+        $!main
+    </div>
+
+</div>
+
+<script>
+    new Vue({
+        el: '#menu',
+        methods: {
+            showSideBar: function () {
+                $('.ui.labeled.icon.sidebar')
+                        .sidebar('toggle')
+                ;
+            }
+        }
+    })
+</script>
+#end
+

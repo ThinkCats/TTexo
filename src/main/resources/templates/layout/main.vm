@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>$!title</title>
+    <link rel="stylesheet" type="text/css" href="/seman/semantic.min.css">
+    <script src="/lib/jquery.min.js"></script>
+    <script src="/lib/vue.js"></script>
+    $!referCss
+</head>
+<body>
+
+$!content
+
+<script src="/seman/semantic.min.js"></script>
+    $!referJs
+</body>
+</html>
