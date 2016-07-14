@@ -19,8 +19,7 @@ import java.util.List;
 public class FileOperate {
 
     //生成文章文件
-    public static void genArticle(Article article) {
-        String dir = "/Users/dasouche";
+    public static void genArticle(String path, Article article) {
         Charset utf8 = StandardCharsets.UTF_8;
         String title = "title: " + article.getTitle();
         String date = "date: " + DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss");
@@ -29,7 +28,7 @@ public class FileOperate {
         String fileName = article.getTitle() + ".md";
         List<String> lines = Arrays.asList("---", title, date, tags, category, "---", article.getContent());
         try {
-            Files.write(Paths.get(dir + System.getProperty("file.separator") + fileName), lines, utf8, StandardOpenOption.CREATE);
+            Files.write(Paths.get(path + System.getProperty("file.separator") + fileName), lines, utf8, StandardOpenOption.CREATE);
         } catch (IOException e) {
             e.printStackTrace();
         }

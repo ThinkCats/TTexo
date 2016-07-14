@@ -12,12 +12,13 @@ import org.springframework.web.bind.annotation.RequestParam;
  * Created by wl on 16/7/4.
  */
 @Controller
+@RequestMapping("/article")
 public class ArticleController {
 
     @Autowired
     private ArticleService articleService;
 
-    @RequestMapping(value = "/new", method = RequestMethod.POST)
+    @RequestMapping(value = "new", method = RequestMethod.POST)
     public String newArticle(@RequestParam("title") String title,
                              @RequestParam("category") String category,
                              @RequestParam("content") String content,
