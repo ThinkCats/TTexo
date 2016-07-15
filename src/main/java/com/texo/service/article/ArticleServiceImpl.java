@@ -1,6 +1,8 @@
 package com.texo.service.article;
 
+import com.texo.common.util.ConfigUitl;
 import com.texo.common.util.FileOperate;
+import com.texo.config.HexoConfig;
 import com.texo.dao.ConfigDao;
 import com.texo.domain.Config;
 import com.texo.domain.dto.Article;
@@ -9,6 +11,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import java.io.File;
+
 /**
  * Created by wl on 16/7/4.
  */
@@ -16,17 +20,20 @@ import org.springframework.util.StringUtils;
 public class ArticleServiceImpl implements ArticleService {
 
     @Autowired
+    private HexoConfig hexoConfig;
+    @Autowired
     private ConfigDao configDao;
 
     @Override
     public void newArticle(Article article) {
         //get config
-        String sql = "select * from config";
-        Config config = configDao.findConfig(sql);
+        Config config = configDao.findConfig();
         String path = config.getSitePath();
-        if (StringUtils.isEmpty(path)){
-            path = ".";
+        if (StringUtils.isEmpty(path)) {
+            path = System.getProperty("user.dir") + System.getProperty("file.separator") + config.getSiteName();
         }
-        FileOperate.genArticle(path + "/post",article);
+
+        FileOperate.genArticle(path + hexoConfig.postDir, article);
+
     }
 }

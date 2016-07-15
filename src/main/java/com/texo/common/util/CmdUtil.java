@@ -8,6 +8,5 @@ import java.io.IOException;
 public class CmdUtil {
     public static void exec(String cmd) throws IOException {
         Process process = Runtime.getRuntime().exec(cmd);
-        
     }
 }

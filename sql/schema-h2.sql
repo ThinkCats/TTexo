@@ -1,15 +1,10 @@
 
--- CREATE TABLE IF NOT EXISTS users(
---   id int,
---   name VARCHAR(100)
--- );
-
 CREATE TABLE IF NOT EXISTS config(
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `site_name` varchar(20) DEFAULT NULL,
   `git` varchar(255) DEFAULT NULL,
   `hexo` varchar(255) DEFAULT NULL,
-  `path` varchar(255) DEFAULT NULL,
+  `site_path` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) DEFAULT CHARSET=utf8;
 
