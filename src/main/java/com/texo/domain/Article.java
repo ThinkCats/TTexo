@@ -1,4 +1,4 @@
-package com.texo.domain.dto;
+package com.texo.domain;
 
 import lombok.Data;
 
@@ -11,4 +11,5 @@ public class Article {
     private String category;
     private String content;
     private String tag;
+    private Integer type;
 }

@@ -1,4 +1,4 @@
-package com.texo.command;
+package com.texo.config;
 
 import com.texo.TexoApplicationTests;
 import com.texo.domain.Config;

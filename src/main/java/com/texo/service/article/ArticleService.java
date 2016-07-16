@@ -1,6 +1,6 @@
 package com.texo.service.article;
 
-import com.texo.domain.dto.Article;
+import com.texo.domain.Article;
 
 /**
  * Created by wl on 16/7/4.

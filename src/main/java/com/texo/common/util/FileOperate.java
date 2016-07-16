@@ -1,6 +1,6 @@
 package com.texo.common.util;
 
-import com.texo.domain.dto.Article;
+import com.texo.domain.Article;
 import org.apache.commons.lang.time.DateFormatUtils;
 
 import java.io.IOException;

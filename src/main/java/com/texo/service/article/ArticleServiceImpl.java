@@ -1,17 +1,14 @@
 package com.texo.service.article;
 
-import com.texo.common.util.ConfigUitl;
 import com.texo.common.util.FileOperate;
 import com.texo.config.HexoConfig;
-import com.texo.dao.ConfigDao;
+import com.texo.dao.IArticleDao;
+import com.texo.dao.IConfigDao;
 import com.texo.domain.Config;
-import com.texo.domain.dto.Article;
+import com.texo.domain.Article;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-
-import java.io.File;
 
 /**
  * Created by wl on 16/7/4.
@@ -22,7 +19,9 @@ public class ArticleServiceImpl implements ArticleService {
     @Autowired
     private HexoConfig hexoConfig;
     @Autowired
-    private ConfigDao configDao;
+    private IConfigDao configDao;
+    @Autowired
+    private IArticleDao articleDao;
 
     @Override
     public void newArticle(Article article) {
@@ -34,6 +33,6 @@ public class ArticleServiceImpl implements ArticleService {
         }
 
         FileOperate.genArticle(path + hexoConfig.postDir, article);
-
+        articleDao.save(article);
     }
 }
