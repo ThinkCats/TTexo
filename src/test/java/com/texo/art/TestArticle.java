@@ -22,10 +22,10 @@ public class TestArticle extends TexoApplicationTests {
     @Test
     public void testAddArticle() {
         Article article = new Article();
-        article.setTitle("MyTest");
+        article.setTitle("MyTest2");
         article.setTag("hehe");
         article.setCategory("hh");
-        article.setContent("Hello");
+        article.setContent("Hello Id");
         article.setType(1);
         articleService.newArticle(article);
     }

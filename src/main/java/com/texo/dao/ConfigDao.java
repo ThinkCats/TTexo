@@ -6,12 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.PreparedStatementSetter;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * Created by wl on 16/7/14.
@@ -24,7 +26,11 @@ public class ConfigDao implements IConfigDao {
     @Override
     public Config findConfig() {
         String sql = "SELECT  * FROM config";
-        return jdbcTemplate.queryForObject(sql, new ConfigRowMapper());
+        List<Config> configs = jdbcTemplate.query(sql, new ConfigRowMapper());
+        if (configs.size() > 0) {
+            return configs.get(0);
+        }
+        return null;
     }
 
     @Override
