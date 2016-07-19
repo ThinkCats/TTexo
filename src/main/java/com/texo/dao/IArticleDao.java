@@ -12,5 +12,5 @@ public interface IArticleDao {
 
     Article findArticle(Integer id);
 
-    List<Article> findArticleList(Integer type);
+    List<Article> findArticleList();
 }

@@ -1,0 +1,28 @@
+.form-top {
+    margin-top: 1rem;
+}
+
+.submit-button {
+    margin-bottom: 1rem;
+    text-align: right;
+}
+
+.menu-left {
+    text-align: left;
+    margin-top: 1rem;
+    margin-left: -5px;
+}
+
+.article-list {
+    height: 1000px;
+}
+
+.article-list-header {
+    margin-left: 5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.article-list-item {
+    margin-bottom: 0.5rem;
+}

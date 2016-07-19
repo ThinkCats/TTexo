@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import java.util.List;
+
 /**
  * Created by wl on 16/7/4.
  */
@@ -34,5 +36,10 @@ public class ArticleServiceImpl implements ArticleService {
 
         FileOperate.genArticle(path + hexoConfig.postDir, article);
         articleDao.save(article);
+    }
+
+    @Override
+    public List<Article> findArticles() {
+        return articleDao.findArticleList();
     }
 }

@@ -37,7 +37,7 @@ public class AriticleDao implements IArticleDao {
     }
 
     @Override
-    public List<Article> findArticleList(Integer type) {
+    public List<Article> findArticleList() {
         String sql = "select * from article";
         List<Article> articles = jdbcTemplate.query(sql, new ArticleRowMapper());
         return articles;

@@ -32,7 +32,7 @@ public class TestArticle extends TexoApplicationTests {
 
     @Test
     public void testQueryArticle() {
-        List<Article> article = articleDao.findArticleList(1);
+        List<Article> article = articleDao.findArticleList();
         System.out.println("articles :" + article.toString());
     }
 }
