@@ -18,7 +18,8 @@ class ArticleStore {
       console.log('article list:', data);
       if (data.ok) {
         data.json().then(result => {
-          console.log('json:', result)
+          console.log('json:', result);
+          this.setState({articles: result.data});
         });
       } else {
         throw new Error("fetch article list Error");

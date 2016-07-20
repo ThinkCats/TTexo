@@ -9,7 +9,9 @@ class ArticleList extends Component {
   }
 
   static getPropsFromStores() {
-    return ArticleStore.getState();
+    let articles = ArticleStore.getState();
+    console.log('articles state:', articles);
+    return {articles: articles.articles};
   }
 
   componentDidMount() {
@@ -17,6 +19,12 @@ class ArticleList extends Component {
   }
 
   render() {
+    let articles = this.props.articles;
+    let view = null;
+    if (articles && articles.length > 0) {
+      view = articles.map((item) => <ArticleItem key={item.id} title={item.title} tag={item.tag}/>);
+    }
+
     return (
       <div>
         <div className="article-list-header">
@@ -27,51 +35,36 @@ class ArticleList extends Component {
         </div>
         <div className=" ui container article-list-container">
           <div className="ui large relaxed divided very animated selection list article-list">
-            <div className="item article-list-item">
-              <div className="right floated content">
-                <div className="ui vertical animated tiny blue basic button" tabIndex="0">
-                  <div className="hidden content">Edit</div>
-                  <div className="visible content">
-                    <i className="edit icon"></i>
-                  </div>
-                </div>
-                <div className="ui vertical animated mini red basic button" tabIndex="0">
-                  <div className="hidden content">Delete</div>
-                  <div className="visible content">
-                    <i className="trash icon"></i>
-                  </div>
-                </div>
-              </div>
-              <i className="large github middle aligned icon"></i>
-              <div className="content">
-                <a className="header">Semantic-Org/Semantic-UI</a>
-                <div className="">Updated 10 mins ago</div>
-              </div>
-            </div>
-
-            <div className="item article-list-item">
-              <div className="right floated content">
-                <div className="ui vertical animated tiny blue basic button" tabIndex="0">
-                  <div className="hidden content">Edit</div>
-                  <div className="visible content">
-                    <i className="edit icon"></i>
-                  </div>
-                </div>
-                <div className="ui vertical animated mini red basic button" tabIndex="0">
-                  <div className="hidden content">Delete</div>
-                  <div className="visible content">
-                    <i className="trash icon"></i>
-                  </div>
-                </div>
-              </div>
-              <i className="large github middle aligned icon"></i>
-              <div className="content">
-                <a className="header">Semantic-Org/Semantic-UI</a>
-                <div className="">Updated 10 mins ago</div>
-              </div>
-            </div>
-
+            {view}
           </div>
+        </div>
+      </div>
+    )
+  }
+}
+
+class ArticleItem extends Component {
+  render() {
+    return (
+      <div className="item article-list-item">
+        <div className="right floated content">
+          <div className="ui vertical animated tiny blue basic button" tabIndex="0">
+            <div className="hidden content">Edit</div>
+            <div className="visible content">
+              <i className="edit icon"></i>
+            </div>
+          </div>
+          <div className="ui vertical animated mini red basic button" tabIndex="0">
+            <div className="hidden content">Delete</div>
+            <div className="visible content">
+              <i className="trash icon"></i>
+            </div>
+          </div>
+        </div>
+        <i className="large github middle aligned icon"></i>
+        <div className="content">
+          <a className="header">{this.props.title}</a>
+          <div className="">{this.props.tag}</div>
         </div>
       </div>
     )

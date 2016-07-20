@@ -13,6 +13,7 @@ public class ArticleRowMapper implements RowMapper<Article> {
     @Override
     public Article mapRow(ResultSet resultSet, int i) throws SQLException {
         Article article = new Article();
+        article.setId(resultSet.getInt("id"));
         article.setTitle(resultSet.getString("title"));
         article.setCategory(resultSet.getString("category"));
         article.setTag(resultSet.getString("tag"));
