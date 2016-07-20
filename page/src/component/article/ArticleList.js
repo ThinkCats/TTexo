@@ -46,7 +46,7 @@ class ArticleList extends Component {
 class ArticleItem extends Component {
   render() {
     return (
-      <div className="item article-list-item">
+      <div id="article-list-item" className="item ">
         <div className="right floated content">
           <div className="ui vertical animated tiny blue basic button" tabIndex="0">
             <div className="hidden content">Edit</div>
@@ -64,7 +64,7 @@ class ArticleItem extends Component {
         <i className="large github middle aligned icon"></i>
         <div className="content">
           <a className="header">{this.props.title}</a>
-          <div className="">{this.props.tag}</div>
+          <div className="tags">tags: {this.props.tag}</div>
         </div>
       </div>
     )

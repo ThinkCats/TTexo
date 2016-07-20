@@ -27,6 +27,13 @@
   margin-bottom: 1rem;
 }
 
-.article-list-item {
+#article-list-item {
+  padding-top: 1.5rem;
+!important;
   margin-bottom: 0.5rem;
+!important;
+}
+
+#article-list-item .tags {
+  font-size: 10pt;
 }
